@@ -1,11 +1,19 @@
 <?php
 
-// TODO: przekazanie dostępnych typów
 return [
-    'amount_invalid' => 'Pole amount jest wymagane i musi być liczbą całkowitą. Przykładowo kwota 90,95 PLN powinna być wysłana jako 9095.',
-    'type_invalid' => 'Pole type jest wymagane i musi zawierać jedną z następnujących wartości: fast, simple, mock.',
-    'card_invalid' => 'Pole cardNumber jest wymagane i musi zawierać poprawny numer karty.',
-    'cvv_invalid' => 'Pole CVV jest wymagane i musi zawierać poprawny kod CVV.',
-    'mock_payment_error' => 'Usługa testowa (mock) zwróciła błąd płatności.',
+    'amount_required' => 'Pole amount jest wymagane.',
+    'amount_integer' => 'Kwota (pole amount) jest przechowywane w centach, należy podać liczbę całkowitą. Przykładowo kwota 90,95 powinna być przesłana jako 9095.',
+    'amount_min' => 'Pole amount musi być liczbą całkowitą większą niż 0.',
+
+    'type_required' => 'Pole type jest wymagane.',
+    'type_invalid' => 'Pole type musi zawierać jedną z następujących wartości: :available_types.',
+
+    'card_required' => 'Pole creditCard jest wymagane.',
+    'card_between' => 'Pole creditCard musi zawierać numer karty o długości od 13 do 19 cyfr.',
+
+    'cvv_required' => 'Pole cvv jest wymagane.',
+    'cvv_between' => 'Pole cvv musi zawierać 3 lub 4 cyfry.',
+
+    'mock_payment_error' => 'Serwis testowy (mock) zwrócił błąd płatności.',
     'payment_failed' => 'Wystąpił błąd podczas przetwarzania płatności.',
 ];
