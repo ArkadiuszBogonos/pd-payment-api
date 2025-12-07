@@ -7,7 +7,7 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./src:/var/www/html
-      - sqlite_data:/var/www/html/database
+      - ./src/database/database.sqlite:/var/www/html/database/database.sqlite
     environment:
       APP_ENV: local
     command: sh -c "chown -R www-data:www-data storage bootstrap/cache database && php-fpm"

@@ -10,7 +10,7 @@ final readonly class PaymentDTOFactory
     public static function create(
         #[ArrayShape([
             'amount' => 'int',
-            'payment_type' => 'string',
+            'type' => 'string',
             'creditCard' => 'string',
             'cvv' => 'int'
         ])]
@@ -19,7 +19,7 @@ final readonly class PaymentDTOFactory
     {
         return new PaymentDTO(
             $validatedRequest['amount'],
-            PaymentType::from($validatedRequest['payment_type']),
+            PaymentType::from($validatedRequest['type']),
             $validatedRequest['creditCard'],
             $validatedRequest['cvv'],
         );

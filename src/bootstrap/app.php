@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Middleware\SetLocale;
+use App\Http\Middleware\SetLocaleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->api([
-            'locale' => SetLocale::class,
+            'locale' => SetLocaleMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

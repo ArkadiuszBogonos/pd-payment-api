@@ -2,7 +2,9 @@
 
 namespace App\Services\Payment;
 
-use Carbon\Carbon;
+use App\Models\Payment;
+use App\Services\Payment\DTOs\PaymentDTO;
+use App\Services\Payment\Enums\PaymentStatus;
 
 readonly abstract class AbstractPaymentService implements PaymentServiceInterface
 {
@@ -11,13 +13,15 @@ readonly abstract class AbstractPaymentService implements PaymentServiceInterfac
     ) {
     }
 
-    protected function baseResponse(string $id, string $status): array
+    protected function storePayment(string $id, PaymentStatus $status, PaymentDTO $paymentDTO): Payment
     {
-        return [
+        // For more complicated database operation I would use a PaymentRepository to handle that job
+        return Payment::create([
             'id' => $id,
+            'amount' => $paymentDTO->amount,
+            'type' => $paymentDTO->type,
             'status' => $status,
-            'paymentUrl' => $this->paymentUrl,
-            'datetime' => Carbon::now()->toString(),
-        ];
+            'url' => $this->paymentUrl,
+        ]);
     }
 }
