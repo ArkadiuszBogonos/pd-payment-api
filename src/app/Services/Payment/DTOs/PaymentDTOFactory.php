@@ -22,8 +22,7 @@ final readonly class PaymentDTOFactory
         return new PaymentDTO(
             (int) $validatedRequest['amount'],
             PaymentType::from($validatedRequest['type']),
-            $validatedRequest['creditCard'],
-            $validatedRequest['cvv'],
+            new CreditCardDTO($validatedRequest['creditCard'], $validatedRequest['cvv'])
         );
     }
 }
