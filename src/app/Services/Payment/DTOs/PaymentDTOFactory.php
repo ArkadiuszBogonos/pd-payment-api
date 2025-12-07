@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Payment\DTOs;
 
 use App\Services\Payment\Enums\PaymentType;
@@ -18,7 +20,7 @@ final readonly class PaymentDTOFactory
     ): PaymentDTO
     {
         return new PaymentDTO(
-            $validatedRequest['amount'],
+            (int) $validatedRequest['amount'],
             PaymentType::from($validatedRequest['type']),
             $validatedRequest['creditCard'],
             $validatedRequest['cvv'],
