@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8304ec-2d16-42d2-a120-4c97379b5810" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/Http/Middleware/SetLocale.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Http/Requests/ProcessPaymentRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/en/payment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lang/pl/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/src/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/Http/Controllers/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Http/Controllers/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +201,7 @@
       <option name="presentableId" value="Default" />
       <updated>1765116012138</updated>
       <workItem from="1765116013326" duration="343000" />
-      <workItem from="1765116370575" duration="5615000" />
+      <workItem from="1765116370575" duration="6295000" />
     </task>
     <servers />
   </component>
