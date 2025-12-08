@@ -36,10 +36,10 @@ final class PaymentController extends Controller
 
             return $processedPayment->toResource()->response()->setStatusCode(Response::HTTP_CREATED);
         } catch (PaymentException $e) {
-            Log::warning($e->getMessage(), $e->getTrace());
+            Log::warning($e->getMessage(), ['exception' => $e]);
             throw new HttpException($e->getCode(), $e->getMessage());
         } catch (Throwable $e) {
-            Log::error($e->getMessage(), $e->getTrace());
+            Log::error($e->getMessage(), ['exception' => $e]);
             throw new HttpException(Response::HTTP_BAD_REQUEST, __('payment.payment_failed'));
         }
     }
