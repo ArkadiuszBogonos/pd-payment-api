@@ -11,13 +11,30 @@ final readonly class SetLocaleMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $lang = $request->query('lang');
+        $available = config('app.available_locales');
+        $default = config('app.locale');
 
-        if ($lang && in_array($lang, config('app.available_locales'))) {
-            app()->setLocale($lang);
-        } else {
-            app()->setLocale(config('app.locale'));
+        $lang = null;
+
+        $queryLang = $request->query('lang');
+        if ($queryLang && in_array($queryLang, $available, true)) {
+            $lang = $queryLang;
         }
+
+        if (!$lang) {
+            foreach ($request->getLanguages() as $headerLocale) {
+                $short = substr($headerLocale, 0, 2);
+
+                if (in_array($short, $available, true)) {
+                    $lang = $short;
+                    break;
+                }
+            }
+        }
+
+        $lang = $lang ?: $default;
+
+        app()->setLocale($lang);
 
         return $next($request);
     }

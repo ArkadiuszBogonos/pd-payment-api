@@ -20,9 +20,9 @@ readonly class PaymentServiceResolver
         protected Container $container
     ) {
         $this->map = [
-            'fast' => FastPayment::class,
-            'simple' => SimplePayment::class,
-            'mock' => MockPayment::class,
+            PaymentType::FAST->value => FastPayment::class,
+            PaymentType::SIMPLE->value => SimplePayment::class,
+            PaymentType::MOCK->value => MockPayment::class,
         ];
     }
 
@@ -31,10 +31,12 @@ readonly class PaymentServiceResolver
      */
     public function resolve(PaymentType $type): PaymentServiceInterface
     {
-        if (!isset($this->map[$type->value])) {
+        $serviceClass = $this->map[$type->value] ?? null;
+
+        if (!$serviceClass) {
             throw new InvalidArgumentException("Unknown payment type: {$type->value}");
         }
 
-        return $this->container->make($this->map[$type->value]);
+        return $this->container->make($serviceClass);
     }
 }
